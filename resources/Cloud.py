@@ -15,8 +15,8 @@ class Cloud:
     def __init__(self, trashCanLid):
         #Pubnub Initialization
         global pubnub
-        pubnub = Pubnub(publish_key=g_pub_key,subscribe_key=g_sub_key)
-        pubnub.subscribe(channels='Trash-Client', callback=callback, error=callback, reconnect=reconnect, disconnect=disconnect)
+        pubnub = Pubnub(publish_key = self.g_pub_key, subscribe_key = self.g_sub_key)
+        pubnub.subscribe(channels = 'Trash-Client', callback = self.callback, error = self.callback, reconnect = self.reconnect, disconnect = self.disconnect)
 
     '''****************************************************************************************
     Function Name   :   alexaControl
@@ -43,7 +43,7 @@ class Cloud:
     ****************************************************************************************'''
     def callback(message, channel):
         if(message.has_key("requester")):
-            lidControl(message)
+            self.lidControl(message)
         else:
             pass
 
