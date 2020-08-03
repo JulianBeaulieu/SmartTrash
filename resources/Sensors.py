@@ -22,7 +22,7 @@ class Sensors:
         self.trashCanLid = newTrashCanLid
 
     def open_button_callback(self, channel):
-        trashCanLid.openLid()
+        self.trashCanLid.openLid()
 
     def close_button_callback(self, channel):
-        trashCanLid.closeLid()
+        self.trashCanLid.closeLid()

@@ -6,6 +6,7 @@ class Cloud:
     # Initialize the Pubnub Keys
     g_pub_key = "pub-c-e172d2c0-f4ff-4cb7-b610-46e2cbce18d5"
     g_sub_key = "sub-c-82bf53a4-bd8a-11ea-a44f-6e05387a1df4"
+    trashCanLid = None
 
     '''****************************************************************************************
     Function Name   :   init
@@ -18,6 +19,8 @@ class Cloud:
         pubnub = Pubnub(publish_key = self.g_pub_key, subscribe_key = self.g_sub_key)
         pubnub.subscribe(channels = 'Trash-Client', callback = self.callback, error = self.callback, reconnect = self.reconnect, disconnect = self.disconnect)
 
+        self.trashCanLid = newTrashCanLid
+
     '''****************************************************************************************
     Function Name   :   alexaControl
     Description     :   Alexa Control, commands received and action performed
@@ -26,9 +29,9 @@ class Cloud:
     def lidControl(controlCommand):
         if(controlCommand.has_key("trigger")):
             if(controlCommand["trigger"] == "open" and controlCommand["status"] == 1):
-                print ("Opening Lid")
+                self.trashCanLid.openLid()
             elif(controlCommand["trigger"] == "close" and controlCommand["status"] == 0):
-                print ("Closing Lid")
+                self.trashCanLid.closeLid()
             else:
                 print("OOPS something went wrong")
         else:
