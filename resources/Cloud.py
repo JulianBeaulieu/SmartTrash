@@ -13,7 +13,7 @@ class Cloud:
     Description     :   Initalize the pubnub keys and Starts Subscribing
     Parameters      :   None
     ****************************************************************************************'''
-    def __init__(self, trashCanLid):
+    def __init__(self, newTrashCanLid):
         #Pubnub Initialization
         global pubnub
         pubnub = Pubnub(publish_key = self.g_pub_key, subscribe_key = self.g_sub_key)
