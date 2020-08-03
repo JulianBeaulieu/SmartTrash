@@ -9,7 +9,7 @@ class Sensors:
     BOUNCE_TIME = 2000
     trashCanLid = None
 
-    def init(self, newTrashCanLid):
+    def __init__(self, newTrashCanLid):
         #sets up the GPIO pins
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.OPEN_BUTTON, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
