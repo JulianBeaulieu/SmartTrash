@@ -7,7 +7,7 @@ class Sensors:
     OPEN_BUTTON = 20
     CLOSE_BUTTON = 21
     BOUNCE_TIME = 2000
-    trashCanLid = Lid()
+    trashCanLid = None
 
     def init(self, newTrashCanLid):
         #sets up the GPIO pins
