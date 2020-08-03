@@ -17,7 +17,7 @@ class Lid:
         GPIO.output(self.inputPin1, GPIO.LOW)
         GPIO.output(self.inputPin2, GPIO.LOW)
         self.motorSpeed = GPIO.PWM(self.powerLevelPin,1000)
-	    self.motorSpeed.start(0)
+        self.motorSpeed.start(0)
 
 
     def openLid(self):
