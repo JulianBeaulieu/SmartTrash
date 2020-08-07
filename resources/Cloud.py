@@ -26,7 +26,7 @@ class Cloud:
     Description     :   Alexa Control, commands received and action performed
     Parameters      :   controlCommand
     ****************************************************************************************'''
-    def lidControl(controlCommand):
+    def lidControl(self, controlCommand):
         if(controlCommand.has_key("trigger")):
             if(controlCommand["trigger"] == "open" and controlCommand["status"] == 1):
                 self.trashCanLid.openLid()
@@ -44,7 +44,7 @@ class Cloud:
     Parameters      :   message - Sensor Status sent from the hardware
                         channel - channel for the callback
     ****************************************************************************************'''
-    def callback(message, channel):
+    def callback(self, message, channel):
         if(message.has_key("requester")):
             self.lidControl(message)
         else:
@@ -55,7 +55,7 @@ class Cloud:
     Description     :   If error in the channel, prints the error
     Parameters      :   message - error message
     ****************************************************************************************'''
-    def error(message):
+    def error(self, message):
         print("ERROR : " + str(message))
 
     '''****************************************************************************************
@@ -63,7 +63,7 @@ class Cloud:
     Description     :   Responds if server connects with pubnub
     Parameters      :   message
     ****************************************************************************************'''
-    def reconnect(message):
+    def reconnect(self, message):
         print("RECONNECTED")
 
     '''****************************************************************************************
@@ -71,5 +71,5 @@ class Cloud:
     Description     :   Responds if server disconnects from pubnub
     Parameters      :   message
     ****************************************************************************************'''
-    def disconnect(message):
+    def disconnect(self, message):
         print("DISCONNECTED")
