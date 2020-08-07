@@ -88,11 +88,6 @@ Description     :   Initalize the pubnub keys and Starts Subscribing
 Parameters      :   None
 ****************************************************************************************'''
 
-#Pubnub Initialization
-global pubnub
-pubnub = Pubnub(publish_key = g_pub_key, subscribe_key = g_sub_key)
-pubnub.subscribe(channels = 'Trash-Client', callback = callback, error = callback, reconnect = reconnect, disconnect = disconnect)
-
 
 '''****************************************************************************************
 Function Name   :   alexaControl
@@ -147,6 +142,10 @@ Parameters      :   message
 def disconnect(message):
     print("DISCONNECTED")
 
+#Pubnub Initialization
+global pubnub
+pubnub = Pubnub(publish_key = g_pub_key, subscribe_key = g_sub_key)
+pubnub.subscribe(channels = 'Trash-Client', callback = callback, error = callback, reconnect = reconnect, disconnect = disconnect)
 
 #This method let's the user ctrl-c out of the program
 def signal_handler(sig, frame):
