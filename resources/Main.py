@@ -31,8 +31,7 @@ GPIO.setup(OPEN_BUTTON, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(CLOSE_BUTTON, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
 # Makes interrupts that monitor pins to check if button or sensor is being pressed
-GPIO.add_event_detect(OPEN_BUTTON, GPIO.BOTH, callback = open_button_callback, bouncetime = BOUNCE_TIME)
-GPIO.add_event_detect(CLOSE_BUTTON, GPIO.BOTH, callback = close_button_callback, bouncetime = BOUNCE_TIME)
+
 
 
 def openLid(self):
@@ -58,21 +57,24 @@ def turn_off(self):
     GPIO.output(inputPin1,GPIO.LOW)
     GPIO.output(inputPin2,GPIO.LOW)
 
-def open(self, speed):
+def open( speed):
     motorSpeed.ChangeDutyCycle(speed)
     GPIO.output(inputPin1,GPIO.LOW)
     GPIO.output(inputPin2,GPIO.HIGH)
 
-def close(self, speed):
+def close( speed):
     motorSpeed.ChangeDutyCycle(speed)
     GPIO.output(inputPin1,GPIO.HIGH)
     GPIO.output(inputPin2,GPIO.LOW)
 
-def open_button_callback(self, channel):
-    trashCanLid.openLid()
+def open_button_callback(channel):
+    openLid()
 
-def close_button_callback(self, channel):
-    trashCanLid.closeLid()
+def close_button_callback( channel):
+    closeLid()
+
+GPIO.add_event_detect(OPEN_BUTTON, GPIO.BOTH, callback = open_button_callback, bouncetime = BOUNCE_TIME)
+GPIO.add_event_detect(CLOSE_BUTTON, GPIO.BOTH, callback = close_button_callback, bouncetime = BOUNCE_TIME)
 
 
 # Initialize the Pubnub Keys
@@ -101,9 +103,9 @@ Parameters      :   controlCommand
 def lidControl(controlCommand):
     if(controlCommand.has_key("trigger")):
         if(controlCommand["trigger"] == "open" and controlCommand["status"] == 1):
-            trashCanLid.openLid()
+            openLid()
         elif(controlCommand["trigger"] == "close" and controlCommand["status"] == 0):
-            trashCanLid.closeLid()
+            closeLid()
         else:
             print("OOPS something went wrong")
     else:
