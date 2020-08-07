@@ -37,20 +37,20 @@ GPIO.add_event_detect(CLOSE_BUTTON, GPIO.BOTH, callback = close_button_callback,
 
 def openLid(self):
     if not lidIsOpen:
-	    print("openning lid")
+        print("openning lid")
         open(100)
         sleep(0.5)
         turn_off()
-	    print("finished openning lid")
+        print("finished openning lid")
         lidIsOpen = True
 
 def closeLid(self):
     if lidIsOpen:
-	    print("closing lid")
+        print("closing lid")
         close(100)
         sleep(0.5)
         turn_off()
-	    print("finished closing lid")
+        print("finished closing lid")
         lidIsOpen = False
 
 
