@@ -35,22 +35,22 @@ GPIO.setup(CLOSE_BUTTON, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
 
 def openLid():
-    if not lidIsOpen:
-        print("openning lid")
-        open(100)
-        sleep(0.5)
-        turn_off()
-        print("finished openning lid")
-        lidIsOpen = True
+    #if not lidIsOpen:
+    print("openning lid")
+    open(100)
+    sleep(0.5)
+    turn_off()
+    print("finished openning lid")
+    #lidIsOpen = True
 
 def closeLid():
-    if lidIsOpen:
-        print("closing lid")
-        close(100)
-        sleep(0.5)
-        turn_off()
-        print("finished closing lid")
-        lidIsOpen = False
+    #if lidIsOpen:
+    print("closing lid")
+    close(100)
+    sleep(0.5)
+    turn_off()
+    print("finished closing lid")
+        #lidIsOpen = False
 
 
 def turn_off():
