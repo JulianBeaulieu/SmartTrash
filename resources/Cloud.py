@@ -28,9 +28,9 @@ class Cloud:
     ****************************************************************************************'''
     def lidControl(self, controlCommand):
         if(controlCommand.has_key("trigger")):
-            if(controlCommand["trigger"] == "light1" and controlCommand["status"] == 1):
+            if(controlCommand["trigger"] == "open" and controlCommand["status"] == 1):
                 self.trashCanLid.openLid()
-            elif(controlCommand["trigger"] == "light1" and controlCommand["status"] == 0):
+            elif(controlCommand["trigger"] == "close" and controlCommand["status"] == 0):
                 self.trashCanLid.closeLid()
             else:
                 print("OOPS something went wrong")
