@@ -21,22 +21,22 @@ class Lid:
 
 
     def openLid(self):
-        if not lidIsOpen:
-    	    print("openning lid")
-            self.open(100)
-            sleep(0.5)
-            self.turn_off()
-    	    print("finished openning lid")
-            lidIsOpen = True
+        #if not lidIsOpen:
+	    print("openning lid")
+        self.open(100)
+        sleep(1)
+        self.turn_off()
+	    print("finished openning lid")
+            #lidIsOpen = True
 
     def closeLid(self):
-        if lidIsOpen:
-    	    print("closing lid")
-            self.close(100)
-            sleep(0.5)
-            self.turn_off()
-    	    print("finished closing lid")
-            lidIsOpen = False
+        #if lidIsOpen:
+	    print("closing lid")
+        self.close(100)
+        sleep(0.5)
+        self.turn_off()
+	    print("finished closing lid")
+            #lidIsOpen = False
 
 
     def turn_off(self):
