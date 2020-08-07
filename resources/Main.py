@@ -86,12 +86,12 @@ Description     :   Initalize the pubnub keys and Starts Subscribing
 Parameters      :   None
 ****************************************************************************************'''
 
-    #Pubnub Initialization
-    global pubnub
-    pubnub = Pubnub(publish_key = g_pub_key, subscribe_key = g_sub_key)
-    pubnub.subscribe(channels = 'Trash-Client', callback = callback, error = callback, reconnect = reconnect, disconnect = disconnect)
+#Pubnub Initialization
+global pubnub
+pubnub = Pubnub(publish_key = g_pub_key, subscribe_key = g_sub_key)
+pubnub.subscribe(channels = 'Trash-Client', callback = callback, error = callback, reconnect = reconnect, disconnect = disconnect)
 
-    trashCanLid = newTrashCanLid
+trashCanLid = newTrashCanLid
 
 '''****************************************************************************************
 Function Name   :   alexaControl
