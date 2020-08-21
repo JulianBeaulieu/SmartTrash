@@ -39,10 +39,10 @@ class Cloud:
                 Speaker.trashDay()
             elif(controlCommand["trigger"] == "kobeMode" and controlCommand["status"] == 1):
                 print("KOBE MODE")
-                KobeBryant.play()
+                KobeBryant.play(self.trashCanLid)
             elif(controlCommand["trigger"] == "halloween" and controlCommand["status"] == 1):
                 print("BOOOO It's halloween")
-                Halloween.play()
+                Halloween.play(self.trashCanLid)
             elif(controlCommand["trigger"] == "music" and controlCommand["status"] == 1):
                 print("Let's get down on it")
                 Music.play()
