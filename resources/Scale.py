@@ -8,7 +8,7 @@ class Scale:
 		self.hx.set_reference_unit(415) # unit needs updating
 		self.hx.reset()
 		self.hx.tare()
-		self.limit =5	# trash limit
+		self.limit = 5000	# trash limit
 
 	def checkWeight(self):	#execute after closing
 		if self.getWeight() >= self.limit:
