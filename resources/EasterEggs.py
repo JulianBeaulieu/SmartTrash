@@ -14,7 +14,7 @@ class KobeBryant:
 		lid.closeLid()
 
 		if scale.getWeight() >oldWeight:
-			Speaker.playSound('cheering.mp3')
+			Speaker.playSound(path + 'cheering.mp3')
 		else:
 			Speaker.fullTrash()
 
