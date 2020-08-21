@@ -26,7 +26,6 @@ class Lid:
 
 
     def openLid(self):
-        #self.dontCloseYet = False
         if not self.lidIsOpen:
         	print("openning lid")
 	        self.open()
@@ -34,9 +33,7 @@ class Lid:
 	        self.turn_off()
 	        print("finished openning lid")
 	        self.lidIsOpen = True
-        sleep(2)
-        #self.dontCloseYet = True
-
+            
 
     def closeLid(self):
         if self.lidIsOpen:
@@ -46,7 +43,7 @@ class Lid:
 	        self.turn_off()
 	        print("finished closing lid")
 	        self.lidIsOpen = False
-                self.scale.checkWeight()
+	        self.scale.checkWeight()
 
 
     def turn_off(self):
