@@ -11,7 +11,7 @@ class KobeBryant:
 		lid = Lid()
 		oldWeight =scale.getWeight()
 		lid.openLid()
-		Speaker.playSound(path + 'buzzer.m4a')
+		Speaker.playSound(path + 'buzzer.mp3')
 		lid.closeLid()
 
 		if scale.getWeight() >oldWeight:
