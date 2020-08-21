@@ -32,7 +32,7 @@ class Lid:
 	        self.turn_off()
 	        print("finished openning lid")
 	        self.lidIsOpen = True
-        sleep(2)
+        #sleep(2)
         #self.dontCloseYet = True
 
 

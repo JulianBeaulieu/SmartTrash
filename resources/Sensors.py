@@ -22,19 +22,19 @@ class Sensors:
         self.trashCanLid = newTrashCanLid
 
     def open_button_callback(self, channel):
-        idc = True
-        for i in range(20):
-		if not GPIO.input(20):
-                        print("dropped detected")
-                        idc = False
-        if idc:
-                self.trashCanLid.openLid()
+        #idc = True
+        #for i in range(20):
+		#if not GPIO.input(20):
+        #print("dropped detected")
+        #idc = False
+        #if idc:
+        self.trashCanLid.openLid()
 
     def close_button_callback(self, channel):
-        idc = True
-        for i in range(20):
-                if not GPIO.input(21):
-                        print("clos dropped detected")
-                        idc = False
-        if idc:
-                self.trashCanLid.closeLid()
+        #idc = True
+        #for i in range(20):
+        #        if not GPIO.input(21):
+        #                print("clos dropped detected")
+        #                idc = False
+        #if idc:
+        self.trashCanLid.closeLid()
