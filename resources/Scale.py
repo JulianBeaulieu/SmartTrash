@@ -5,7 +5,7 @@ class Scale:
 	def __init__(self):
 		self.hx =HX711(5,6)
 		self.hx.set_reading_format("MSB", "MSB")
-		self.hx.set_reference_unit(0) # unit needs updating
+		self.hx.set_reference_unit(2000) # unit needs updating
 		self.hx.reset()
 		self.hx.tare()
 		self.limit =5	# trash limit
