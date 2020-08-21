@@ -3,7 +3,7 @@ from hx711 import HX711
 
 class Scale:
 	def __init__(self):
-		self.hx =HX711(5,6)
+		self.hx =HX711(24, 23)
 		self.hx.set_reading_format("MSB", "MSB")
 		self.hx.set_reference_unit(2000) # unit needs updating
 		self.hx.reset()
