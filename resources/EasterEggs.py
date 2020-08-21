@@ -16,7 +16,7 @@ class KobeBryant:
 		if scale.getWeight() >oldWeight:
 			Speaker.playSound(path + 'cheering.mp3')
 		else:
-			Speaker.fullTrash()
+			Speaker.playSound(path + 'boo.mp3')
 
 class Halloween:
 	@staticmethod
