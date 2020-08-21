@@ -1,4 +1,4 @@
-from Scale import Scale
+from Speaker import Speaker
 
-scale =Scale()
+Speaker.trashDay()
 
