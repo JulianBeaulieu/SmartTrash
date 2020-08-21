@@ -5,29 +5,27 @@ from time import sleep
 
 class KobeBryant:
 	@staticmethod
-	def play():
+	def play(lid):
 		path = 'Recordings/KobeMode/'
 		scale = Scale()
-		lid = Lid()
 		oldWeight =scale.getWeight()
 		lid.openLid()
 		Speaker.playSound(path + 'buzzer.mp3')
 		lid.closeLid()
 
 		if scale.getWeight() >oldWeight:
-			Speaker.playSound('cheering.mp3')
+			Speaker.playSound(path + 'cheering.mp3')
 		else:
-			Speaker.fullTrash()
+			Speaker.playSound(path + 'boo.mp3')
 
 class Halloween:
 	@staticmethod
-	def play():
+	def play(lid):
 		path = 'Recordings/KobeMode/'
 		scale = Scale()
-		lid = Lid()
 		oldWeight =scale.getWeight()
 		lid.openLid()
-		Speaker.playSound(path + 'buzzer.m4a')
+		Speaker.playSound(path + 'buzzer.mp3')
 		lid.closeLid()
 
 		if scale.getWeight() >oldWeight:

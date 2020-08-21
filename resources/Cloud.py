@@ -31,18 +31,23 @@ class Cloud:
     def lidControl(self, controlCommand):
         if(controlCommand.has_key("trigger")):
             if(controlCommand["trigger"] == "open" and controlCommand["status"] == 1):
-                self.trashCanLid.openLid()
+                self.trashCanLid.openLid(self.trashCanLid)
             elif(controlCommand["trigger"] == "close" and controlCommand["status"] == 0):
-                self.trashCanLid.closeLid()
+                self.trashCanLid.closeLid(self.trashCanLid)
             elif(controlCommand["trigger"] == "trashDay" and controlCommand["status"] == 1):
+                print("It's Trash Day")
                 Speaker.trashDay()
             elif(controlCommand["trigger"] == "kobeMode" and controlCommand["status"] == 1):
-                KobeBryant.play()
+                print("KOBE MODE")
+                KobeBryant.play(self.trashCanLid)
             elif(controlCommand["trigger"] == "halloween" and controlCommand["status"] == 1):
-                Halloween.play()
+                print("BOOOO It's halloween")
+                Halloween.play(self.trashCanLid)
             elif(controlCommand["trigger"] == "music" and controlCommand["status"] == 1):
+                print("Let's get down on it")
                 Music.play()
             elif(controlCommand["trigger"] == "system" and controlCommand["status"] == 1):
+                print("Reboot yo self")
                 System.reboot()
             else:
                 print("OOPS something went wrong")
