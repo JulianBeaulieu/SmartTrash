@@ -2,7 +2,7 @@
 import time
 from pubnub import Pubnub
 from Speaker import Speaker
-from EasterEgg import *
+from EasterEggs import *
 
 class Cloud:
     # Initialize the Pubnub Keys
