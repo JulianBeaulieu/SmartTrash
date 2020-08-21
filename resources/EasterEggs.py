@@ -6,16 +6,16 @@ from time import sleep
 class KobeBryant:
 	@staticmethod
 	def play():
+		path = 'Recordings/KobeMode/'
 		scale = Scale()
 		lid = Lid()
 		oldWeight =scale.getWeight()
 		lid.openLid()
-		Speaker.playSound('path to buzzer sound)
-		sleep(10)
+		Speaker.playSound(path + 'buzzer.m4a')
+		lid.closeLid()
 
 		if scale.getWeight() >oldWeight:
-			Speaker.playSound('path to cheering')
+			Speaker.playSound('cheering.mp3')
 		else:
-			Speaker.playSound('path to boo')
+			Speaker.fullTrash()
 
-		lid.closeLid()
