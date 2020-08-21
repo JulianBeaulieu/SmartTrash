@@ -31,9 +31,9 @@ class Cloud:
     def lidControl(self, controlCommand):
         if(controlCommand.has_key("trigger")):
             if(controlCommand["trigger"] == "open" and controlCommand["status"] == 1):
-                self.trashCanLid.openLid(self.trashCanLid)
+                self.trashCanLid.openLid()
             elif(controlCommand["trigger"] == "close" and controlCommand["status"] == 0):
-                self.trashCanLid.closeLid(self.trashCanLid)
+                self.trashCanLid.closeLid()
             elif(controlCommand["trigger"] == "trashDay" and controlCommand["status"] == 1):
                 print("It's Trash Day")
                 Speaker.trashDay()
