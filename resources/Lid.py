@@ -6,9 +6,10 @@ class Lid:
     inputPin2 = 27      #in2
     powerLevelPin = 7   #encle
     motorSpeed = GPIO.PWM
-    lidIsOpen = False
+    #lidIsOpen = False
 
     def __init__(self):
+	self.lidIsOpen =False
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(self.inputPin1, GPIO.OUT)
@@ -21,22 +22,22 @@ class Lid:
 
 
     def openLid(self):
-        #if not lidIsOpen:
-        print("openning lid")
-        self.open(100)
-        sleep(1)
-        self.turn_off()
-        print("finished openning lid")
-            #lidIsOpen = True
+        if not self.lidIsOpen:
+        	print("openning lid")
+	        self.open(100)
+	        sleep(2)
+	        self.turn_off()
+	        print("finished openning lid")
+	        self.lidIsOpen = True
 
     def closeLid(self):
-        #if lidIsOpen:
-        print("closing lid")
-        self.close(100)
-        sleep(0.5)
-        self.turn_off()
-        print("finished closing lid")
-            #lidIsOpen = False
+        if self.lidIsOpen:
+        	print("closing lid")
+	        self.close(100)
+	        sleep(3)
+	        self.turn_off()
+	        print("finished closing lid")
+            	self.lidIsOpen = False
 
 
     def turn_off(self):
