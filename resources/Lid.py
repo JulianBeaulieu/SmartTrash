@@ -50,10 +50,10 @@ class Lid:
         GPIO.output(self.inputPin1,GPIO.LOW)
         GPIO.output(self.inputPin2,GPIO.LOW)
 
-    def close(self):
+    def open(self):
         GPIO.output(self.inputPin1,GPIO.LOW)
         GPIO.output(self.inputPin2,GPIO.HIGH)
 
-    def open(self):
+    def close(self):
         GPIO.output(self.inputPin1,GPIO.HIGH)
         GPIO.output(self.inputPin2,GPIO.LOW)
