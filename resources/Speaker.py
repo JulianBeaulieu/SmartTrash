@@ -7,7 +7,7 @@ class Speaker:
 	def fullTrash():
 		path ='Recordings/FullTrash/English/'
 		file = str(random.choice(os.listdir(path)))
-		os.system('omxplayer ' + path + file)
+		os.system('mpg123 ' + path + file)
 
 	@staticmethod
 	def trashDay():
@@ -17,4 +17,4 @@ class Speaker:
 
 	@staticmethod
 	def playSound(path):
-		os.system('omxplayer ' + path)
+		os.system('mpg123 ' + path)
