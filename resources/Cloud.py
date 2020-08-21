@@ -2,7 +2,7 @@
 import time
 from pubnub import Pubnub
 from Speaker import Speaker
-from EaserEgg import *
+from EasterEgg import *
 
 class Cloud:
     # Initialize the Pubnub Keys
@@ -42,6 +42,8 @@ class Cloud:
                 Halloween.play()
             elif(controlCommand["trigger"] == "music" and controlCommand["status"] == 1):
                 Music.play()
+            elif(controlCommand["trigger"] == "system" and controlCommand["status"] == 1):
+                System.reboot()
             else:
                 print("OOPS something went wrong")
         else:
