@@ -5,10 +5,10 @@ class Scale:
 	def __init__(self):
 		self.hx =HX711(24, 23)
 		self.hx.set_reading_format("MSB", "MSB")
-		self.hx.set_reference_unit(415) # unit needs updating
+		self.hx.set_reference_unit(255) # unit needs updating
 		self.hx.reset()
 		self.hx.tare()
-		self.limit = 2500	# trash limit
+		self.limit = 1500	# trash limit
 
 	def checkWeight(self):	#execute after closing
 		if self.getWeight() >= self.limit:
