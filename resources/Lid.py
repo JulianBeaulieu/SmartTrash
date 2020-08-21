@@ -9,7 +9,8 @@ class Lid:
     #lidIsOpen = False
 
     def __init__(self):
-	self.lidIsOpen =False
+
+        self.lidIsOpen =False
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(self.inputPin1, GPIO.OUT)
