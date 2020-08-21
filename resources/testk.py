@@ -1,3 +1,4 @@
-from EasterEggs import *
+from Scale import Scale
 
-KobeBryant.play()
+scale =Scale()
+

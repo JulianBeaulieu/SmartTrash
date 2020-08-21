@@ -11,7 +11,8 @@ class Scale:
 		self.limit =5	# trash limit
 
 	def checkWeight(self):	#execute after closing
-		if self.getWeight >= self.limit:
+		if self.getWeight() >= self.limit:
+			print("take out the trash")
 			#send recording to speaker
 			return 0
 

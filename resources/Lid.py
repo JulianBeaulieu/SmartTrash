@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
+from Scale import Scale
 
 class Lid:
     inputPin1 = 17      #in1
@@ -10,6 +11,7 @@ class Lid:
 
     def __init__(self):
         #self.dontCloseYet = True
+	self.scale =Scale()
         self.lidIsOpen = False
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
@@ -44,6 +46,7 @@ class Lid:
 	        self.turn_off()
 	        print("finished closing lid")
 	        self.lidIsOpen = False
+                self.scale.checkWeight()
 
 
     def turn_off(self):
