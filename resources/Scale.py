@@ -1,16 +1,20 @@
 import RPi.GPIO as GPIO
 from hx711 import HX711
+from Speaker import Speaker
 
 class Scale:
 	def __init__(self):
-		self.hx =HX711(5,6)
+		self.hx =HX711(24, 23)
+		self.hx.set_reading_format("MSB", "MSB")
+		self.hx.set_reference_unit(255) # unit needs updating
 		self.hx.reset()
 		self.hx.tare()
-		self.limit =5
+		self.limit = 1500	# trash limit
 
 	def checkWeight(self):	#execute after closing
-		if self.getWeight >= self.limit:
-			#send recording to speaker
+		if self.getWeight() >= self.limit:
+			print("take out the trash")
+			Speaker.fullTrash()
 			return 0
 
 	def getWeight(self):
