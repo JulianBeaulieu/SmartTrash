@@ -8,5 +8,4 @@ Ignore Android files, those are mostly unchanged from the default files, with th
 
 Ignore iOS files, those are mostly unchanged from the default files, with the exception of some iOS permissions for notifications
 
-Test folder can also be ignored, test if you want
 
