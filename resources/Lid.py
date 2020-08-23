@@ -33,7 +33,6 @@ class Lid:
 	        self.turn_off()
 	        print("finished openning lid")
 	        self.lidIsOpen = True
-            
 
     def closeLid(self):
         if self.lidIsOpen:
