@@ -1,6 +1,8 @@
 #Import the Modules Required
 import time
 from pubnub import Pubnub
+from Speaker import Speaker
+from EasterEggs import *
 
 class Cloud:
     # Initialize the Pubnub Keys
@@ -32,6 +34,21 @@ class Cloud:
                 self.trashCanLid.openLid()
             elif(controlCommand["trigger"] == "close" and controlCommand["status"] == 0):
                 self.trashCanLid.closeLid()
+            elif(controlCommand["trigger"] == "trashDay" and controlCommand["status"] == 1):
+                print("It's Trash Day")
+                Speaker.trashDay()
+            elif(controlCommand["trigger"] == "kobeMode" and controlCommand["status"] == 1):
+                print("KOBE MODE")
+                KobeBryant.play(self.trashCanLid)
+            elif(controlCommand["trigger"] == "halloween" and controlCommand["status"] == 1):
+                print("BOOOO It's halloween")
+                Halloween.play(self.trashCanLid)
+            elif(controlCommand["trigger"] == "music" and controlCommand["status"] == 1):
+                print("Let's get down on it")
+                Music.play()
+            elif(controlCommand["trigger"] == "system" and controlCommand["status"] == 1):
+                print("Reboot yo self")
+                System.reboot()
             else:
                 print("OOPS something went wrong")
         else:
