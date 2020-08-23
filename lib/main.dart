@@ -16,8 +16,8 @@ import 'package:pubnub/pubnub.dart';
 
 final pubnub = PubNub(//PubNub Connect
     defaultKeyset: Keyset(
-        subscribeKey: 'sub-c-c13906c4-c6cd-11ea-a827-3a9bd744da8f',
-        publishKey: 'pub-c-73bf7982-70fc-451d-9b62-b2f34032716e',
+        subscribeKey: 'sub-c-82bf53a4-bd8a-11ea-a44f-6e05387a1df4',
+        publishKey: 'pub-c-e172d2c0-f4ff-4cb7-b610-46e2cbce18d5',
         uuid: UUID('Smart-Trash')
     )
 );
@@ -115,11 +115,21 @@ class LaunchingApp extends StatelessWidget {
                   title: Text('Close', style: TextStyle(fontSize: 20,color: Colors.black),),
                 ),
               ],
+              onTap: _onItemTapped,
               backgroundColor: Colors.grey,
               iconSize: 50,
             ),
           )),
       store: store,
     );
+  }
+}
+
+void _onItemTapped(int index) {
+  if(index == 0){
+    pubnub.publish('Channel-puzo6i9eq', {'text': 'Open'});
+  }
+  else if(index == 1){
+    pubnub.publish('Channel-puzo6i9eq', {'text': 'Close'});
   }
 }
