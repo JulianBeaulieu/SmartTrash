@@ -22,7 +22,7 @@ final pubnub = PubNub(//PubNub Connect
     )
 );
 
-final df = new DateFormat('dd-MM-yyyy hh:mm a');
+final df = new DateFormat('MM-dd-yyyy hh:mm a');
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -127,9 +127,9 @@ class LaunchingApp extends StatelessWidget {
 
 void _onItemTapped(int index) {
   if(index == 0){
-    pubnub.publish('Channel-puzo6i9eq', {'text': 'Open'});
+    pubnub.publish('Trash-Client', {"requester":"App","trigger":"open","status":1});
   }
   else if(index == 1){
-    pubnub.publish('Channel-puzo6i9eq', {'text': 'Close'});
+    pubnub.publish('Trash-Client', {"requester":"App","trigger":"close","status":0});
   }
 }
