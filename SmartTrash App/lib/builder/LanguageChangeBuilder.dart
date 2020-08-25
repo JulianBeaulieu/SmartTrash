@@ -81,7 +81,7 @@ class _LanguageChangeBuilderState extends State<LanguageChangeBuilder> {
                                         value: value,
                                         child:Text(value),
                                         onTap: (){
-                                          pubnub.publish('Trash-Client', {'text': 'Language: ' + value});
+                                          pubnub.publish('Trash-Client', {"requester":"App","language":value});
                                         },
                                       );
                                     }).toList(),
