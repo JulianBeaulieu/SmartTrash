@@ -107,6 +107,20 @@ class _LanguageChangeBuilderState extends State<LanguageChangeBuilder> {
                                       style: TextStyle(color: Colors.white),
                                     )),
                             ),
+                            Padding(
+                                padding: new EdgeInsets.only(
+                                    bottom: margin, top: margin),
+                                child: Text(
+                                  'Language of the app itself will not change, this '
+                                      'is used to change the language that the trashcan'
+                                      ' speaker will use',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.none,
+                                      fontWeight: FontWeight.w500),
+                                )
+                            ),
                           ],
                         ),
                       ),
