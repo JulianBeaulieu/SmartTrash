@@ -76,12 +76,19 @@ class _LanguageChangeBuilderState extends State<LanguageChangeBuilder> {
                                         dropValue = newValue;
                                       });
                                     },
-                                    items: <String>['English','Spanish','German','French'].map<DropdownMenuItem<String>>((String value){
+                                    items: <String>['English','German','Spanish','French'].map<DropdownMenuItem<String>>((String value){
                                       return DropdownMenuItem<String>(
                                         value: value,
                                         child:Text(value),
                                         onTap: (){
-                                          pubnub.publish('Trash-Client', {"requester":"App","language":value});
+                                          if(value == 'English')
+                                            pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":1});
+                                          else if(value == 'German')
+                                            pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":2});
+                                          else if(value == 'Spanish')
+                                            pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":3});
+                                          else if(value == 'French')
+                                            pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":4});
                                         },
                                       );
                                     }).toList(),
