@@ -32,10 +32,8 @@ class ReminderAlertBuilder extends StatefulWidget {
 }
 
 class _ReminderAlertBuilderState extends State<ReminderAlertBuilder> {
-  bool playMusicReminder = false;
-  bool lookAfterPlantsReminder = false;
-  bool walkFor5minReminder = false;
-  bool drinkSomeWaterReminder = false;
+  bool everyDayReminder = false;
+  bool everyWeekReminder = false;
   bool customReminder = false;
   double margin = Platform.isIOS ? 10 : 5;
 
@@ -93,11 +91,11 @@ class _ReminderAlertBuilderState extends State<ReminderAlertBuilder> {
                         ReminderItem(
                           onChanged: (value) {
                             setState(() {
-                              playMusicReminder = value;
+                              everyDayReminder = value;
                             });
                             _configureEveryDayReminder(value);
                           },
-                          checkBoxValue: playMusicReminder,
+                          checkBoxValue: everyDayReminder,
                           iconName: everyday,
                         ),
                         Padding(
@@ -114,11 +112,11 @@ class _ReminderAlertBuilderState extends State<ReminderAlertBuilder> {
                         ReminderItem(
                           onChanged: (value) {
                             setState(() {
-                              lookAfterPlantsReminder = value;
+                              everyWeekReminder = value;
                             });
                             _configureEveryWeekReminder(value);
                           },
-                          checkBoxValue: lookAfterPlantsReminder,
+                          checkBoxValue: everyWeekReminder,
                           iconName: weekly,
                         ),
                         Padding(
@@ -193,10 +191,10 @@ class _ReminderAlertBuilderState extends State<ReminderAlertBuilder> {
     list.forEach((item) {
       switch (item.name) {
         case everyday:
-          playMusicReminder = true;
+          everyDayReminder = true;
           break;
         case weekly:
-          lookAfterPlantsReminder = true;
+          everyWeekReminder = true;
           break;
         case custom:
           customReminder = true;
