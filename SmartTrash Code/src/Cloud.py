@@ -51,7 +51,7 @@ class Cloud:
             elif(controlCommand["trigger"] == "system" and controlCommand["status"] == 1):
                 print("Reboot yo self")
                 System.reboot()
-            elif(controlCommand["trigger"] == "languageChange" and controlCommand["status"] == 1):
+            elif(controlCommand["trigger"] == "languageChange"):
                 supportedLanguages = ['English', 'German', 'Arabic', 'Spanish', 'Chinese']
                 self.language.setLanguage(supportedLanguages[controlCommand["status"]])
                 print("Language changed")
