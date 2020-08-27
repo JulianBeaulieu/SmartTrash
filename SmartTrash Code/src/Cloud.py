@@ -3,12 +3,14 @@ import time
 from pubnub import Pubnub
 from Speaker import Speaker
 from EasterEggs import *
+from Language import Language
 
 class Cloud:
     # Initialize the Pubnub Keys
     g_pub_key = "pub-c-e172d2c0-f4ff-4cb7-b610-46e2cbce18d5"
     g_sub_key = "sub-c-82bf53a4-bd8a-11ea-a44f-6e05387a1df4"
     trashCanLid = None
+    anguage = Language()
 
     '''****************************************************************************************
     Function Name   :   init
@@ -49,6 +51,10 @@ class Cloud:
             elif(controlCommand["trigger"] == "system" and controlCommand["status"] == 1):
                 print("Reboot yo self")
                 System.reboot()
+            elif(controlCommand["trigger"] == "languageChange" and controlCommand["status"] == 1):
+                supportedLanguages = ['English', 'German', 'Arabic', 'Spanish', 'Chinese']
+                self.language.setLanguage(supportedLanguages[controlCommand["status"]])
+                print("Language changed")
             else:
                 print("OOPS something went wrong")
         else:
