@@ -6,9 +6,10 @@ from time import sleep
 class KobeBryant:
 	@staticmethod
 	def play(lid):
-		path = 'Recordings/KobeMode/'
+		path = '../Recordings/KobeMode/'
 		scale = Scale()
-		scale.setReference(30)
+		scale.setReference(127)
+		scale.setLimit(3000)
 		oldWeight =scale.getWeight()
 		lid.openLid()
 		Speaker.playSound(path + 'buzzer.mp3')
@@ -22,7 +23,7 @@ class KobeBryant:
 class Halloween:
 	@staticmethod
 	def play(lid):
-		path = 'Recordings/KobeMode/'
+		path = '../Recordings/KobeMode/'
 		scale = Scale()
 		oldWeight =scale.getWeight()
 		lid.openLid()
