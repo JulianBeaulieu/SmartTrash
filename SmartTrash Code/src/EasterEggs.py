@@ -8,6 +8,7 @@ class KobeBryant:
 	def play(lid):
 		path = 'Recordings/KobeMode/'
 		scale = Scale()
+		scale.setReference(30)
 		oldWeight =scale.getWeight()
 		lid.openLid()
 		Speaker.playSound(path + 'buzzer.mp3')
