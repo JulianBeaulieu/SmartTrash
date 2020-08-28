@@ -38,6 +38,7 @@ class HalloweenThread (threading.Thread):
 		threadLock.acquire()
 
 		if(self.threadID == 1):
+
 			Speaker.playSound('../Recordings/HalloweenMode/scream.mp3')
 			# Free lock to release next thread
 			threadLock.release()
@@ -48,7 +49,7 @@ class HalloweenThread (threading.Thread):
 			threadLock.release()
 
 		# Free lock to release next thread
-		threadLock.release()
+		#threadLock.release()
 
 class Halloween:
 	@staticmethod
