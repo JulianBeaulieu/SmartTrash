@@ -71,11 +71,11 @@ class HalloweenScreamThread (threading.Thread):
 class Halloween:
 	@staticmethod
 	def play(lid):
-		path ='../Recordings/Halloween/'
+		path = '../Recordings/Halloween/'
 		file = str(random.choice(os.listdir(path)))
 		# Create new threads
-		thread1 = HalloweenLidMovementThread(1, lid, file)
-		thread2 = HalloweenScreamThread(2, file)
+		thread1 = HalloweenLidMovementThread(1, lid, path + file)
+		thread2 = HalloweenScreamThread(2, path + file)
 
 		# Start new Threads
 		thread1.start()
