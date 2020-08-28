@@ -2,8 +2,6 @@ import os
 import sys
 import random
 from Language import Language
-from soundplayer import SoundPlayer
-from pygame import mixer
 
 class Speaker:
 	@staticmethod

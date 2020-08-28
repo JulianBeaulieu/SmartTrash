@@ -22,6 +22,7 @@ class Language:
         if(self.languageIsSupported(tmp)):
             self.language = tmp
 
+        print(tmp)
         print(self.language)
 
         file.close()
