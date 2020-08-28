@@ -95,8 +95,7 @@ class KobeModeScaleThread(threading.Thread):
 	def run(self):
 		oldWeight = self.lid.scale.getWeight()
 
-		for i in range(10):
-			sleep(0.1)
+		for i in range(100):
 			if(self.lid.scale.getWeight() > oldWeight):
 				exitFlag = 100
 
