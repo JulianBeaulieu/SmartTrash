@@ -34,7 +34,7 @@ class KobeModeScaleThread(threading.Thread):
 
 	def run(self):
 		for i in range(10):
-			if self.lid.scale.getWeight() > (self.weight + 4):
+			if self.lid.scale.getWeight() > (self.weight + 2):
 				self.increased = True
 
 		closeT = KobeModeLid(self.lid, 0)
