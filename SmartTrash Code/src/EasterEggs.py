@@ -2,6 +2,8 @@ from Scale import Scale
 from Lid import Lid
 from Speaker import Speaker
 from time import sleep
+import random
+import os
 import time
 import threading
 
