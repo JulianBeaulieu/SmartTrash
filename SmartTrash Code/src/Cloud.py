@@ -10,7 +10,7 @@ class Cloud:
     g_pub_key = "pub-c-e172d2c0-f4ff-4cb7-b610-46e2cbce18d5"
     g_sub_key = "sub-c-82bf53a4-bd8a-11ea-a44f-6e05387a1df4"
     trashCanLid = None
-    anguage = Language()
+    language = Language()
 
     '''****************************************************************************************
     Function Name   :   init
