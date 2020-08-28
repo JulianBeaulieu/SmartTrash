@@ -25,11 +25,12 @@ class KobeBryant:
 			Speaker.playSound(path + 'boo.mp3')
 
 class HalloweenThread (threading.Thread):
-	def __init__(self, threadID, name, counter):
+	def __init__(self, threadID, name, counter, lid):
 		threading.Thread.__init__(self)
 		self.threadID = threadID
 		self.name = name
 		self.counter = counter
+		self.lid = lid
 
 	def run(self):
 		print "Starting " + self.name
@@ -53,8 +54,8 @@ class Halloween:
 	@staticmethod
 	def play(lid):
 		# Create new threads
-		thread1 = HalloweenThread(1, "Thread-1", 1)
-		thread2 = HalloweenThread(2, "Thread-2", 2)
+		thread1 = HalloweenThread(1, "Thread-1", 1, lid)
+		thread2 = HalloweenThread(2, "Thread-2", 2, lid)
 
 		# Start new Threads
 		thread1.start()
