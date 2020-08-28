@@ -2,38 +2,68 @@ from Scale import Scale
 from Lid import Lid
 from Speaker import Speaker
 from time import sleep
+import threading
 
 class KobeBryant:
 	@staticmethod
 	def play(lid):
 		path = '../Recordings/KobeMode/'
-		scale = Scale()
-		scale.setReference(127)
-		scale.setLimit(3000)
-		oldWeight =scale.getWeight()
-		lid.openLid()
-		Speaker.playSound(path + 'buzzer.mp3')
-		lid.closeLid()
+		scaleT = KobeModeScaleThread(1, 'scale', lid)
+		buzzerT = KobeModeSound(2, 'cheer', path + 'buzzer.mp3')
+		openT = KobeModeLid(lid, 1)
 
-		if scale.getWeight() >oldWeight:
-			Speaker.playSound(path + 'cheering.mp3')
+		scaleT.start()
+		buzzerT.start()
+		openT.start()
+
+class KobeModeScaleThread(threading.Thread):
+	def __init__(self, id, name, lid):
+		threading.Thread.__init__(self)
+		self.threadID =id
+		self.name =name
+		self.lid =lid
+		self.increased =False
+		self.scale =Scale()
+		self.weight =self.scale.getWeight()
+
+	def run(self):
+		for i in range(10):
+			if self.scale.getWeight >self.weight:
+				self.increased =True
+
+		closeT = KobeModeLid(self.lid, 0)
+		if self.increased:
+			soundT = KobeModeSound(2, 'sound', '../Recordings/KobeMode/cheering.mp3')
 		else:
-			Speaker.playSound(path + 'boo.mp3')
+			soundT = KobeModeSound(2, 'sound', '../Recordings/KobeMode/boo.mp3')
+
+		closeT.st
+		soundT.start()
+
+class KobeModeLid(threading.Thread):
+	def __init__(self, lid, s):
+		self.lid =lid
+		self.status =s
+
+	def run(self):
+		if self.status:
+			self.lid.openLid()
+		else:
+			self.lid.closeLid()
+
+class KobeModeSound(threading.Thread):
+	def __init__(self, id, name, path):
+		threading.Thread.__init__(self)
+		self.threadID =id
+		self.name =name
+		self.path =path
+
+	def run(self):
+		Speaker.playSound(self.path)
 
 class Halloween:
 	@staticmethod
 	def play(lid):
-		path = '../Recordings/KobeMode/'
-		scale = Scale()
-		oldWeight =scale.getWeight()
-		lid.openLid()
-		Speaker.playSound(path + 'buzzer.mp3')
-		lid.closeLid()
-
-		if scale.getWeight() >oldWeight:
-			Speaker.playSound('cheering.mp3')
-		else:
-			Speaker.fullTrash()
 
 class Music:
 	@staticmethod
