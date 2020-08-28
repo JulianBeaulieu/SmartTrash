@@ -2,12 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:hello_world/actions/actions.dart';
 import 'package:hello_world/main.dart';
-import 'package:hello_world/models/index.dart';
-import 'package:hello_world/store/store.dart';
-import 'package:hello_world/utils/notificationHelper.dart';
 
 class LanguageChangeBuilder extends StatefulWidget {
   LanguageChangeBuilder({Key key, this.title}) : super(key: key);
@@ -76,18 +71,20 @@ class _LanguageChangeBuilderState extends State<LanguageChangeBuilder> {
                                         dropValue = newValue;
                                       });
                                     },
-                                    items: <String>['English','German','Spanish','French'].map<DropdownMenuItem<String>>((String value){
+                                    items: <String>['English','German','Arabic','Spanish','Chinese'].map<DropdownMenuItem<String>>((String value){
                                       return DropdownMenuItem<String>(
                                         value: value,
                                         child:Text(value),
                                         onTap: (){
                                           if(value == 'English')
-                                            pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":1});
+                                            pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":0});
                                           else if(value == 'German')
+                                            pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":1});
+                                          else if(value == 'Arabic')
                                             pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":2});
                                           else if(value == 'Spanish')
                                             pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":3});
-                                          else if(value == 'French')
+                                          else if(value == 'Chinese')
                                             pubnub.publish('Trash-Client', {"requester":"App","trigger":"languageChange","status":4});
                                         },
                                       );
