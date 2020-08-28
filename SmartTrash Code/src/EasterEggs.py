@@ -77,26 +77,26 @@ class KobeBryant:
 	@staticmethod
 	def play(lid):
 		path = '../Recordings/KobeMode/'
-		scaleThread = KobeModeScaleThread(1)
+		scaleThread = KobeModeScaleThread(1, lid)
 		lidThread = KobeModeLid(1, lid)
 
 		scaleThread.start()
 		lidThread.start()
 
 class KobeModeScaleThread(threading.Thread):
-	def __init__(self, id):
+	def __init__(self, id, lid):
 		threading.Thread.__init__(self)
 		self.threadID = id
 		self.increased = False
-		self.scale = Scale()
-		self.weight = self.scale.getWeight()
+		self.lid = lid
+		self.weight = self.lid.scale.getWeight()
 
 	def run(self):
 		for i in range(10):
 			#50 too low
 			print("Weight Before " + str(self.weight))
-			print("Measured Weight " + str(self.scale.getWeight()))
-			if self.scale.getWeight() > (self.weight + 150):
+			print("Measured Weight " + str(self.lid.scale.getWeight()))
+			if self.lid.scale.getWeight() > (self.weight + 150):
 				self.increased = True
 			sleep(0.1)
 

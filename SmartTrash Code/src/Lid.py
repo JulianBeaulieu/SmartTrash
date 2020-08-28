@@ -7,11 +7,9 @@ class Lid:
     inputPin2 = 27      #in2
     powerLevelPin = 7   #encle
     motorSpeed = GPIO.PWM
-    #lidIsOpen = False
+    self.scale = Scale()
 
     def __init__(self):
-        #self.dontCloseYet = True
-	self.scale =Scale()
         self.lidIsOpen = False
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
