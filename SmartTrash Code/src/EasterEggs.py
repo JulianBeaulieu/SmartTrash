@@ -30,7 +30,7 @@ class KobeModeScaleThread(threading.Thread):
 		self.name = name
 		self.lid = lid
 		self.increased = False
-		self.weight = self.scale.getWeight()
+		self.weight = self.lid.scale.getWeight()
 
 	def run(self):
 		for i in range(10):
