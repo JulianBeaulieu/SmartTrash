@@ -208,7 +208,8 @@ class _ReminderAlertBuilderState extends State<ReminderAlertBuilder> {
   void _configureEveryDayReminder(bool value) {
     if (value) {
       getStore().dispatch(SetReminderAction(
-          time: new DateTime.now().toIso8601String(),
+          time: new DateTime(DateTime.now().year, DateTime.now().month,
+              DateTime.now().day, 12, 30).toIso8601String(),
           name: everyday,
           repeat: RepeatInterval.Daily));
 
@@ -223,9 +224,10 @@ class _ReminderAlertBuilderState extends State<ReminderAlertBuilder> {
   void _configureEveryWeekReminder(bool value) {
     if (value) {
       getStore().dispatch(SetReminderAction(
-          time: new DateTime.now().toIso8601String(),
+          time: new DateTime(DateTime.now().year, DateTime.now().month,
+              DateTime.now().day, 12, 30).toIso8601String(),
           name: weekly,
-          repeat: RepeatInterval.Daily));
+          repeat: RepeatInterval.Weekly));
       scheduleNotificationPeriodically(flutterLocalNotificationsPlugin, '1',
           weekly, RepeatInterval.Weekly);
     } else {
@@ -245,7 +247,7 @@ class _ReminderAlertBuilderState extends State<ReminderAlertBuilder> {
         getStore().dispatch(SetReminderAction(
             time: notificationTime.toIso8601String(),
             name: custom,
-            repeat: RepeatInterval.Daily));
+            repeat: RepeatInterval.Weekly));
 
         scheduleNotification(
             flutterLocalNotificationsPlugin, '2', custom, notificationTime);
