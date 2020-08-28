@@ -3,6 +3,7 @@ import sys
 import random
 from Language import Language
 from soundplayer import SoundPlayer
+from pygame import mixer
 
 class Speaker:
 	@staticmethod
@@ -12,6 +13,8 @@ class Speaker:
 		file = str(random.choice(os.listdir(path)))
 		#os.system('mpg123 ' + path + file)
 		p = SoundPlayer(path + file, 1)
+		sound = mixer.Sound(path + file)
+		sound.play()
 		p.play(1)
 
 	@staticmethod
@@ -21,10 +24,14 @@ class Speaker:
 		file = str(random.choice(os.listdir(path)))
 		#os.system('mpg123 ' + path + file)
 		p = SoundPlayer(path + file, 1)
+		sound = mixer.Sound(path + file)
+		sound.play()
 		p.play(1)
 
 	@staticmethod
 	def playSound(path):
 		#os.system('mpg123 ' + path)
 		p = SoundPlayer(path, 1)
+		sound = mixer.Sound(path)
+		sound.play()
 		p.play(1)
