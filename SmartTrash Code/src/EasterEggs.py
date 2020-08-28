@@ -10,7 +10,7 @@ import threading
 exitFlag = 0
 threadLock = threading.Lock()
 threads = []
-'''
+
 class KobeBryant:
 	@staticmethod
 	def play(lid):
@@ -69,8 +69,9 @@ class KobeModeSound(threading.Thread):
 
 	def run(self):
 		Speaker.playSound(self.path)
-'''
 
+
+'''
 class KobeBryant:
 	@staticmethod
 	def play(lid):
@@ -120,7 +121,7 @@ class KobeModeLid(threading.Thread):
 			Speaker.playSound('../Recordings/KobeMode/boo.mp3')
 
 
-
+'''
 
 
 
