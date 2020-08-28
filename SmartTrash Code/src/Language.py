@@ -13,23 +13,18 @@ class Language:
     #Helper Methods
     def languageIsSupported(self, newLanguage):
         supportedLanguages = ['English', 'German', 'Arabic', 'Spanish', 'Chinese']
-        print(newLanguage)
-        print(newLanguage in supportedLanguages)
         return(newLanguage in supportedLanguages)
 
     def loadLanguage(self):
-        file = open("language.txt", "wb+")
+        file = open("language.txt", "r")
         tmp = file.read()
 
         if(self.languageIsSupported(tmp)):
             self.language = tmp
 
-        print(tmp)
-        print(self.language)
-
         file.close()
 
     def saveLanguage(self, newLanguage):
-        file = open("language.txt", "wb+")
+        file = open("language.txt", "w")
         file.write(newLanguage)
         file.close()
