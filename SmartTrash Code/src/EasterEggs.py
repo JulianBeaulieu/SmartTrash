@@ -2,7 +2,7 @@ from Scale import Scale
 from Lid import Lid
 from Speaker import Speaker
 from time import sleep
-from time
+import time
 import threading
 
 exitFlag = 0
