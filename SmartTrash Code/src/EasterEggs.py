@@ -25,50 +25,59 @@ class KobeBryant:
 			Speaker.playSound(path + 'boo.mp3')
 
 class HalloweenLidMovementThread (threading.Thread):
-	def __init__(self, threadID, lid):
+	def __init__(self, threadID, lid, file):
 		threading.Thread.__init__(self)
 		self.threadID = threadID
 		self.lid = lid
+		self.file = filepath
 
 	def run(self):
 		print "Starting Lid Movement"
 
-		self.lid.openLid()
-		self.lid.closeLid()
+		if(scream in self.file):
+			self.lid.openLid()
+			self.lid.closeLid()
+		else:
+			self.lid.open()
+			sleep(.2)
+			self.lid.close()
+			sleep(.1)
+			self.lid.open()
+			sleep(.1)
+			self.lid.close()
+			sleep(.1)
+			self.lid.open()
+			sleep(.1)
+			self.lid.close()
+			sleep(.1)
 
 		print "Ending Lid Movement"
 
 class HalloweenScreamThread (threading.Thread):
-	def __init__(self, threadID):
+	def __init__(self, threadID, filepath):
 		threading.Thread.__init__(self)
 		self.threadID = threadID
+		self.file = filepath
 
 	def run(self):
 		print "Starting Screaming"
 
-		Speaker.playSound('../Recordings/HalloweenMode/scream.mp3')
+		Speaker.playSound(self.file)
 
 		print "Ending Screaming"
 
 class Halloween:
 	@staticmethod
 	def play(lid):
+		path ='../Recordings/Halloween/'
+		file = str(random.choice(os.listdir(path)))
 		# Create new threads
-		thread1 = HalloweenLidMovementThread(1, lid)
-		thread2 = HalloweenScreamThread(2)
+		thread1 = HalloweenLidMovementThread(1, lid, file)
+		thread2 = HalloweenScreamThread(2, file)
 
 		# Start new Threads
 		thread1.start()
 		thread2.start()
-
-		# Add threads to thread list
-		#threads.append(thread1)
-		#threads.append(thread2)
-
-		# Wait for all threads to complete
-		#for t in threads:
-		#    t.join()
-		#print "Exiting Main Thread"
 
 
 class Music:
