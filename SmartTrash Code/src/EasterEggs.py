@@ -42,6 +42,7 @@ class HalloweenThread (threading.Thread):
 			# Free lock to release next thread
 			threadLock.release()
 		else:
+			sleep(1)
 			self.lid.openLid()
 			self.lid.closeLid()
 			# Free lock to release next thread
