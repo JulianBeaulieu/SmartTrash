@@ -2,12 +2,12 @@ class Language:
     language = "English"
 
     def getLanguage(self):
-        loadLanguage()
+        self.loadLanguage()
         return(self.language)
 
     def setLanguage(self, newLanguage):
         if(self.languageIsSupported(newLanguage)):
-            saveLanguage(newLanguage)
+            self.saveLanguage(newLanguage)
 
 
     #Helper Methods
