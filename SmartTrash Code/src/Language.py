@@ -22,6 +22,8 @@ class Language:
         if(self.languageIsSupported(tmp)):
             self.language = tmp
 
+        print(self.language)
+
         file.close()
 
     def saveLanguage(self, newLanguage):
