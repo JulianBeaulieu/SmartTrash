@@ -14,7 +14,7 @@ class Speaker:
 		#os.system('mpg123 ' + path + file)
 		p = SoundPlayer(path + file, 1)
 		mixer.init()
-		sound = mixer.Sound(path + file)
+		sound = mixer.load(path + file)
 		sound.play()
 		p.play(1)
 
@@ -26,7 +26,7 @@ class Speaker:
 		#os.system('mpg123 ' + path + file)
 		p = SoundPlayer(path + file, 1)
 		mixer.init()
-		sound = mixer.Sound(path + file)
+		sound = mixer.load(path + file)
 		sound.play()
 		p.play(1)
 
@@ -35,6 +35,6 @@ class Speaker:
 		#os.system('mpg123 ' + path)
 		p = SoundPlayer(path, 1)
 		mixer.init()
-		sound = mixer.Sound(path)
+		sound = mixer.load(path)
 		sound.play()
 		p.play(1)
