@@ -92,8 +92,8 @@ class KobeModeScaleThread(threading.Thread):
 		self.weight = self.scale.getWeight()
 
 	def run(self):
-		for i in range(10):
-			if self.scale.getWeight > (self.weight + 10):
+		for i in range(20):
+			if self.scale.getWeight > (self.weight + 50):
 				self.increased = True
 			sleep(0.1)
 
