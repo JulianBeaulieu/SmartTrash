@@ -35,16 +35,19 @@ class HalloweenThread (threading.Thread):
 		print "Starting " + self.name
 		# Get lock to synchronize threads
 		threadLock.acquire()
-		print_time(self.name, self.counter, 3)
+
+		if(self.threadID == 1):
+			Speaker.playSound('../Recordings/HalloweenMode/scream.mp3')
+			# Free lock to release next thread
+			threadLock.release()
+		else:
+			lid.openLid()
+			lid.closeLid()
+			# Free lock to release next thread
+			threadLock.release()
+
 		# Free lock to release next thread
 		threadLock.release()
-
-def print_time(threadName, delay, counter):
-	while counter:
-		time.sleep(delay)
-		print "%s: %s" % (threadName, time.ctime(time.time()))
-		counter -= 1
-
 
 class Halloween:
 	@staticmethod
