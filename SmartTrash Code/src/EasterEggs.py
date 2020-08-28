@@ -27,7 +27,7 @@ class KobeBryant:
 			Speaker.playSound(path + 'boo.mp3')
 
 class HalloweenLidMovementThread (threading.Thread):
-	def __init__(self, threadID, lid, file):
+	def __init__(self, threadID, lid, filepath):
 		threading.Thread.__init__(self)
 		self.threadID = threadID
 		self.lid = lid
