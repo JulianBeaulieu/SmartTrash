@@ -7,14 +7,14 @@ class Speaker:
 	@staticmethod
 	def fullTrash():
 		language = Language()
-		path ='Recordings/FullTrash/' + language.getLanguage() + '/'
+		path ='../Recordings/FullTrash/' + language.getLanguage() + '/'
 		file = str(random.choice(os.listdir(path)))
 		os.system('mpg123 ' + path + file)
 
 	@staticmethod
 	def trashDay():
 		language = Language()
-		path ='Recordings/TrashDay/' + language.getLanguage() + '/'
+		path ='../Recordings/TrashDay/' + language.getLanguage() + '/'
 		file = str(random.choice(os.listdir(path)))
 		os.system('mpg123 ' + path + file)
 

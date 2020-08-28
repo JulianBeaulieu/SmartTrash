@@ -14,7 +14,7 @@ threads = []
 class KobeBryant:
 	@staticmethod
 	def play(lid):
-		path = 'Recordings/KobeMode/'
+		path = '../Recordings/KobeMode/'
 		scale = Scale()
 		oldWeight =scale.getWeight()
 		lid.openLid()
