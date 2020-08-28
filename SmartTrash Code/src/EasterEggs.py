@@ -48,6 +48,8 @@ class HalloweenLidMovementThread (threading.Thread):
 					sleep(.1)
 					self.lid.open()
 					sleep(.1)
+				self.lid.close()
+				sleep(.1)
 
 			self.lid.close()
 			sleep(.3)
