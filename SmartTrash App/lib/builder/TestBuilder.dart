@@ -51,7 +51,7 @@ class _TestBuilderState extends State<TestBuilder> {
       turnOffNotificationById(flutterLocalNotificationsPlugin, 3);
       swapper = false;
     }
-    else {
+    else if(!swapper){
       swapper = true;
       var now = new DateTime.now();
       var notificationTime = new DateTime(now.year,
@@ -60,8 +60,7 @@ class _TestBuilderState extends State<TestBuilder> {
 
       getStore().dispatch(SetReminderAction(
           time: notificationTime.toIso8601String(),
-          name: custom,
-          repeat: RepeatInterval.Daily));
+          name: custom));
 
       scheduleNotification(
           flutterLocalNotificationsPlugin, '3', custom, notificationTime);
