@@ -11,6 +11,7 @@ exitFlag = 0
 threadLock = threading.Lock()
 threads = []
 
+'''
 class KobeBryant:
 	@staticmethod
 	def play(lid):
@@ -26,19 +27,21 @@ class KobeBryant:
 class KobeModeScaleThread(threading.Thread):
 	def __init__(self, id, name, lid):
 		threading.Thread.__init__(self)
-		self.threadID =id
-		self.name =name
-		self.lid =lid
-		self.increased =False
-		self.scale =Scale()
-		self.weight =self.scale.getWeight()
+		self.threadID = id
+		self.name = name
+		self.lid = lid
+		self.increased = False
+		self.scale = Scale()
+		self.weight = self.scale.getWeight()
 
 	def run(self):
 		for i in range(10):
-			if self.scale.getWeight >self.weight:
-				self.increased =True
+			if self.scale.getWeight > (self.weight + 4):
+				self.increased = True
 
 		closeT = KobeModeLid(self.lid, 0)
+		soundT = KobeModeSound(2, 'sound', '../Recordings/KobeMode/cheering.mp3')
+
 		if self.increased:
 			soundT = KobeModeSound(2, 'sound', '../Recordings/KobeMode/cheering.mp3')
 		else:
@@ -68,6 +71,58 @@ class KobeModeSound(threading.Thread):
 
 	def run(self):
 		Speaker.playSound(self.path)
+'''
+
+class KobeBryant:
+	@staticmethod
+	def play(lid):
+		path = '../Recordings/KobeMode/'
+		scaleThread = KobeModeScaleThread(1)
+		lidThread = KobeModeLid(1, lid)
+
+		scaleThread.start()
+		lidThread.start()
+
+class KobeModeScaleThread(threading.Thread):
+	def __init__(self, id):
+		threading.Thread.__init__(self)
+		self.threadID = id
+		self.increased = False
+		self.scale = Scale()
+		self.weight = self.scale.getWeight()
+
+	def run(self):
+		for i in range(10):
+			if self.scale.getWeight > (self.weight + 4):
+				self.increased = True
+			sleep(0.1)
+
+		if self.increased:
+			Speaker.playSound('../Recordings/KobeMode/cheering.mp3')
+		else:
+			Speaker.playSound('../Recordings/KobeMode/boo.mp3')
+
+class KobeModeLid(threading.Thread):
+	def __init__(self, id, lid):
+		threading.Thread.__init__(self)
+		self.threadID = id
+		self.lid =lid
+
+	def run(self):
+		self.lid.openLid()
+		sleep(1.2)
+		self.lid.closeLid()
+
+
+
+
+
+
+
+
+
+
+
 
 class HalloweenLidMovementThread (threading.Thread):
 	def __init__(self, threadID, lid, filepath):
