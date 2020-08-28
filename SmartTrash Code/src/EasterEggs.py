@@ -24,7 +24,7 @@ class KobeBryant:
 		else:
 			Speaker.playSound(path + 'boo.mp3')
 
-class HalloweenThread (threading.Thread):
+class HalloweenLidMovementThread (threading.Thread):
 	def __init__(self, threadID, name, counter, lid):
 		threading.Thread.__init__(self)
 		self.threadID = threadID
@@ -37,26 +37,37 @@ class HalloweenThread (threading.Thread):
 		# Get lock to synchronize threads
 		threadLock.acquire()
 
-		if(self.threadID == 2):
-			Speaker.playSound('../Recordings/HalloweenMode/scream.mp3')
-			# Free lock to release next thread
-			threadLock.release()
-		else:
-			#sleep(1)
-			self.lid.openLid()
-			self.lid.closeLid()
-			# Free lock to release next thread
-			threadLock.release()
+		#sleep(1)
+		self.lid.openLid()
+		self.lid.closeLid()
+		# Free lock to release next thread
+		threadLock.release()
 
 		# Free lock to release next thread
 		#threadLock.release()
+class HalloweenScreamThread (threading.Thread):
+	def __init__(self, threadID, name, counter, lid):
+		threading.Thread.__init__(self)
+		self.threadID = threadID
+		self.name = name
+		self.counter = counter
+		self.lid = lid
+
+	def run(self):
+		print "Starting " + self.name
+		# Get lock to synchronize threads
+		threadLock.acquire()
+
+		Speaker.playSound('../Recordings/HalloweenMode/scream.mp3')
+		# Free lock to release next thread
+		threadLock.release()
 
 class Halloween:
 	@staticmethod
 	def play(lid):
 		# Create new threads
-		thread1 = HalloweenThread(1, "Thread-1", 1, lid)
-		thread2 = HalloweenThread(2, "Thread-2", 2, lid)
+		thread1 = HalloweenLidMovementThread(1, "Thread-1", 1, lid)
+		thread2 = HalloweenScreamThread(2, "Thread-2", 2, lid)
 
 		# Start new Threads
 		thread1.start()
