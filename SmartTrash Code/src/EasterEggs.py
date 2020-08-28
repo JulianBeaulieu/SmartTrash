@@ -83,6 +83,7 @@ class KobeBryant:
 		scaleThread.start()
 		lidThread.start()
 
+
 class KobeModeScaleThread(threading.Thread):
 	def __init__(self, id, lid):
 		threading.Thread.__init__(self)
@@ -92,15 +93,11 @@ class KobeModeScaleThread(threading.Thread):
 		self.weight = self.lid.scale.getWeight()
 
 	def run(self):
-		for i in range(10):
-			#50 too low
-			print("Weight Before " + str(self.weight))
-			print("Measured Weight " + str(self.lid.scale.getWeight()))
-			if self.lid.scale.getWeight() > (self.weight + 150):
-				self.increased = True
-			sleep(0.1)
+		oldWeight = self.lid.scale.getWeight()
 
-		if self.increased:
+		sleep(0.1)
+
+		if self.lid.scale.getWeight() > oldWeight:
 			Speaker.playSound('../Recordings/KobeMode/cheering.mp3')
 		else:
 			Speaker.playSound('../Recordings/KobeMode/boo.mp3')
@@ -113,7 +110,7 @@ class KobeModeLid(threading.Thread):
 
 	def run(self):
 		self.lid.openLid()
-		sleep(2)
+		Speaker.playSound('../Recordings/KobeMode/buzzer.mp3')
 		self.lid.closeLid()
 
 
