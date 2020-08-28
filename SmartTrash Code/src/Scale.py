@@ -21,7 +21,7 @@ class Scale:
 		currentWeight =self.hx.get_weight(5)
 		self.hx.power_down();
 		self.hx.power_up();
-		return currentWeight
+		return max(currentWeight, 0)
 
 	def setReference(self, u):
 		self.set_reference_unit =u
