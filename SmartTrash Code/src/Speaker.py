@@ -13,6 +13,7 @@ class Speaker:
 		file = str(random.choice(os.listdir(path)))
 		#os.system('mpg123 ' + path + file)
 		p = SoundPlayer(path + file, 1)
+		mixer.init()
 		sound = mixer.Sound(path + file)
 		sound.play()
 		p.play(1)
@@ -24,6 +25,7 @@ class Speaker:
 		file = str(random.choice(os.listdir(path)))
 		#os.system('mpg123 ' + path + file)
 		p = SoundPlayer(path + file, 1)
+		mixer.init()
 		sound = mixer.Sound(path + file)
 		sound.play()
 		p.play(1)
@@ -32,6 +34,7 @@ class Speaker:
 	def playSound(path):
 		#os.system('mpg123 ' + path)
 		p = SoundPlayer(path, 1)
+		mixer.init()
 		sound = mixer.Sound(path)
 		sound.play()
 		p.play(1)
