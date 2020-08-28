@@ -10,7 +10,7 @@ import threading
 exitFlag = 0
 threadLock = threading.Lock()
 threads = []
-
+'''
 class KobeBryant:
 	@staticmethod
 	def play(lid):
@@ -69,8 +69,8 @@ class KobeModeSound(threading.Thread):
 
 	def run(self):
 		Speaker.playSound(self.path)
-
 '''
+
 class KobeBryant:
 	@staticmethod
 	def play(lid):
@@ -90,6 +90,7 @@ class KobeModeScaleThread(threading.Thread):
 		self.weight = self.lid.scale.getWeight()
 
 	def run(self):
+		global exitFlag
 		oldWeight = self.lid.scale.getWeight()
 		print("Start checking")
 		for i in range(100):
@@ -105,6 +106,7 @@ class KobeModeLid(threading.Thread):
 		self.lid =lid
 
 	def run(self):
+		global exitFlag
 		self.lid.openLid()
 		Speaker.playSound('../Recordings/KobeMode/buzzer.mp3')
 		sleep(1)
@@ -114,11 +116,6 @@ class KobeModeLid(threading.Thread):
 			Speaker.playSound('../Recordings/KobeMode/cheering.mp3')
 		else:
 			Speaker.playSound('../Recordings/KobeMode/boo.mp3')
-
-
-
-
-'''
 
 
 
