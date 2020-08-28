@@ -6,6 +6,8 @@ from time import ctime
 import threading
 
 exitFlag = 0
+threadLock = threading.Lock()
+threads = []
 
 class KobeBryant:
 	@staticmethod
@@ -47,9 +49,6 @@ class HalloweenThread (threading.Thread):
 class Halloween:
 	@staticmethod
 	def play(lid):
-		threadLock = threading.Lock()
-		threads = []
-
 		# Create new threads
 		thread1 = HalloweenThread(1, "Thread-1", 1)
 		thread2 = HalloweenThread(2, "Thread-2", 2)
