@@ -57,7 +57,7 @@ class Cloud:
             elif(controlCommand["trigger"] == "languageChange"):
                 supportedLanguages = ['English', 'German', 'Arabic', 'Spanish', 'Chinese']
                 self.language.setLanguage(supportedLanguages[controlCommand["status"]])
-                print("Language changed")
+                print("Language changed to " + supportedLanguages[controlCommand["status"]])
             else:
                 print("OOPS something went wrong")
         else:
