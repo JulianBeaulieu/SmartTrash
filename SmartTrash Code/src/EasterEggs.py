@@ -95,6 +95,8 @@ class KobeModeScaleThread(threading.Thread):
 		print("Start checking")
 		for i in range(100):
 			if(self.lid.scale.getWeight() > oldWeight):
+				print(self.lid.scale.getWeight())
+				print(oldWeight)
 				exitFlag = 100
 
 		print("Stop checking")
