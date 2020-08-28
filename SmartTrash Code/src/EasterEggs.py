@@ -95,7 +95,7 @@ class KobeModeScaleThread(threading.Thread):
 	def run(self):
 		oldWeight = self.lid.scale.getWeight()
 
-		for in in range(10):
+		for i in range(10):
 			sleep(0.1)
 			if(self.lid.scale.getWeight() > oldWeight):
 				exitFlag = 100
@@ -111,7 +111,7 @@ class KobeModeLid(threading.Thread):
 		Speaker.playSound('../Recordings/KobeMode/buzzer.mp3')
 		sleep(1)
 		self.lid.closeLid()
-		
+
 		if exitFlag > 0:
 			Speaker.playSound('../Recordings/KobeMode/cheering.mp3')
 		else:
