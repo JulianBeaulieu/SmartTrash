@@ -12,7 +12,7 @@ class Speaker:
 		path ='../Recordings/FullTrash/' + language.getLanguage() + '/'
 		file = str(random.choice(os.listdir(path)))
 		#os.system('mpg123 ' + path + file)
-		p = SoundPlayer(path + file, 1)
+		p = SoundPlayer(path + file, 2)
 		mixer.init()
 		sound = mixer.load(path + file)
 		sound.play()
@@ -24,7 +24,7 @@ class Speaker:
 		path ='../Recordings/TrashDay/' + language.getLanguage() + '/'
 		file = str(random.choice(os.listdir(path)))
 		#os.system('mpg123 ' + path + file)
-		p = SoundPlayer(path + file, 1)
+		p = SoundPlayer(path + file, 2)
 		mixer.init()
 		sound = mixer.load(path + file)
 		sound.play()
@@ -33,7 +33,7 @@ class Speaker:
 	@staticmethod
 	def playSound(path):
 		#os.system('mpg123 ' + path)
-		p = SoundPlayer(path, 1)
+		p = SoundPlayer(path, 2)
 		mixer.init()
 		sound = mixer.load(path)
 		sound.play()
