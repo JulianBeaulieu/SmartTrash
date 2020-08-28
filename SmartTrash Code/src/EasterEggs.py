@@ -41,17 +41,16 @@ class HalloweenLidMovementThread (threading.Thread):
 			self.lid.closeLid()
 		else:
 			self.lid.open()
-			sleep(.4)
+			sleep(.3)
+			for(i in range(10)):
+				self.lid.close()
+				sleep(.1)
+				self.lid.open()
+				sleep(.1)
+
 			self.lid.close()
-			sleep(.1)
-			self.lid.open()
-			sleep(.1)
-			self.lid.close()
-			sleep(.1)
-			self.lid.open()
-			sleep(.1)
-			self.lid.close()
-			sleep(.1)
+			sleep(.3)
+			self.lid.turn_off()
 
 		print "Ending Lid Movement"
 
