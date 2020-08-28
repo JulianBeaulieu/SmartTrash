@@ -36,7 +36,7 @@ class HalloweenLidMovementThread (threading.Thread):
 	def run(self):
 		print "Starting Lid Movement"
 
-		if(scream in self.file):
+		if('scream' in self.file):
 			self.lid.openLid()
 			self.lid.closeLid()
 		else:
