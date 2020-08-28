@@ -47,7 +47,6 @@ class HalloweenScreamThread (threading.Thread):
 		print "Starting Screaming"
 
 		Speaker.playSound('../Recordings/HalloweenMode/scream.mp3')
-		Speaker.playSound('../Recordings/HalloweenMode/scream.mp3')
 
 		print "Ending Screaming"
 
