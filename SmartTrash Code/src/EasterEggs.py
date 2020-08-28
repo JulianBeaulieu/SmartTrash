@@ -92,7 +92,7 @@ class KobeModeScaleThread(threading.Thread):
 		self.weight = self.scale.getWeight()
 
 	def run(self):
-		for i in range(30):
+		for i in range(10):
 			#50 too low
 			print(str(self.weight))
 			print(str(self.scale.getWeight()))
