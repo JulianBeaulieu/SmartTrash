@@ -39,11 +39,11 @@ class HalloweenThread (threading.Thread):
 		# Free lock to release next thread
 		threadLock.release()
 
-	def print_time(threadName, delay, counter):
-		while counter:
-			time.sleep(delay)
-			print "%s: %s" % (threadName, time.ctime(time.time()))
-			counter -= 1
+def print_time(threadName, delay, counter):
+	while counter:
+		time.sleep(delay)
+		print "%s: %s" % (threadName, time.ctime(time.time()))
+		counter -= 1
 
 
 class Halloween:
