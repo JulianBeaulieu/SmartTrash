@@ -37,11 +37,12 @@ class KobeModeScaleThread(threading.Thread):
 		else:
 			soundT = KobeModeSound(2, 'sound', '../Recordings/KobeMode/boo.mp3')
 
-		closeT.st
+		closeT.start()
 		soundT.start()
 
 class KobeModeLid(threading.Thread):
 	def __init__(self, lid, s):
+		threading.Thread.__init__(self)
 		self.lid =lid
 		self.status =s
 
