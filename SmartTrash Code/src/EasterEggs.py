@@ -111,6 +111,7 @@ class KobeModeLid(threading.Thread):
 	def run(self):
 		self.lid.openLid()
 		Speaker.playSound('../Recordings/KobeMode/buzzer.mp3')
+		sleep(1)
 		self.lid.closeLid()
 
 
