@@ -40,13 +40,14 @@ class HalloweenLidMovementThread (threading.Thread):
 			self.lid.openLid()
 			self.lid.closeLid()
 		else:
-			self.lid.open()
-			sleep(.3)
-			for i in range(30):
-				self.lid.close()
-				sleep(.1)
+			for i in range(3):
 				self.lid.open()
-				sleep(.2)
+				sleep(.3)
+				for i in range(10):
+					self.lid.close()
+					sleep(.1)
+					self.lid.open()
+					sleep(.2)
 
 			self.lid.close()
 			sleep(.3)
