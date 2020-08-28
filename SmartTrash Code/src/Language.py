@@ -13,6 +13,8 @@ class Language:
     #Helper Methods
     def languageIsSupported(self, newLanguage):
         supportedLanguages = ['English', 'German', 'Arabic', 'Spanish', 'Chinese']
+        print(newLanguage)
+        print(newLanguage in supportedLanguages)
         return(newLanguage in supportedLanguages)
 
     def loadLanguage(self):
