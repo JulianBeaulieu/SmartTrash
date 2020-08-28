@@ -16,7 +16,7 @@ class Language:
         return(newLanguage in supportedLanguages)
 
     def loadLanguage(self):
-        file = open("language.txt", "wb")
+        file = open("language.txt", "wb+")
         tmp = file.read()
 
         if(self.languageIsSupported(tmp)):
@@ -25,6 +25,6 @@ class Language:
         file.close()
 
     def saveLanguage(self, newLanguage):
-        file = open("language.txt", "wb")
+        file = open("language.txt", "wb+")
         file.write(newLanguage)
         file.close()
