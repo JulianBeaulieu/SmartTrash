@@ -42,7 +42,7 @@ class HalloweenThread (threading.Thread):
 			# Free lock to release next thread
 			threadLock.release()
 		else:
-			sleep(1)
+			#sleep(1)
 			self.lid.openLid()
 			self.lid.closeLid()
 			# Free lock to release next thread
@@ -63,13 +63,13 @@ class Halloween:
 		thread2.start()
 
 		# Add threads to thread list
-		threads.append(thread1)
-		threads.append(thread2)
+		#threads.append(thread1)
+		#threads.append(thread2)
 
 		# Wait for all threads to complete
-		for t in threads:
-		    t.join()
-		print "Exiting Main Thread"
+		#for t in threads:
+		#    t.join()
+		#print "Exiting Main Thread"
 
 
 class Music:
