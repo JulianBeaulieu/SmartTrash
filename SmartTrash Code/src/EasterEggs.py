@@ -2,7 +2,14 @@ from Scale import Scale
 from Lid import Lid
 from Speaker import Speaker
 from time import sleep
+import random
+import os
+import time
 import threading
+
+exitFlag = 0
+threadLock = threading.Lock()
+threads = []
 
 class KobeBryant:
 	@staticmethod
@@ -61,9 +68,62 @@ class KobeModeSound(threading.Thread):
 	def run(self):
 		Speaker.playSound(self.path)
 
+class HalloweenLidMovementThread (threading.Thread):
+	def __init__(self, threadID, lid, filepath):
+		threading.Thread.__init__(self)
+		self.threadID = threadID
+		self.lid = lid
+		self.file = filepath
+
+	def run(self):
+		print "Starting Lid Movement"
+
+		if('scream' in self.file):
+			self.lid.openLid()
+			self.lid.closeLid()
+		else:
+			for i in range(3):
+				self.lid.open()
+				sleep(.3)
+				for i in range(10):
+					self.lid.close()
+					sleep(.1)
+					self.lid.open()
+					sleep(.1)
+				self.lid.close()
+				sleep(.2)
+
+			self.lid.close()
+			sleep(.3)
+			self.lid.turn_off()
+
+		print "Ending Lid Movement"
+
+class HalloweenScreamThread (threading.Thread):
+	def __init__(self, threadID, filepath):
+		threading.Thread.__init__(self)
+		self.threadID = threadID
+		self.file = filepath
+
+	def run(self):
+		print "Starting Screaming"
+
+		Speaker.playSound(self.file)
+
+		print "Ending Screaming"
+
 class Halloween:
 	@staticmethod
 	def play(lid):
+		path = '../Recordings/HalloweenMode/'
+		file = str(random.choice(os.listdir(path)))
+		# Create new threads
+		thread1 = HalloweenLidMovementThread(1, lid, (path + file + ''))
+		thread2 = HalloweenScreamThread(2, (path + file + ''))
+
+		# Start new Threads
+		thread1.start()
+		thread2.start()
 
 class Music:
 	@staticmethod

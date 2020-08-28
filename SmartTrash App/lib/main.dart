@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hello_world/builder/LanguageChangeBuilder.dart';
+import 'package:hello_world/builder/TestBuilder.dart';
 import 'package:hello_world/store/AppState.dart';
 import 'package:hello_world/store/store.dart';
 import 'package:hello_world/utils/notificationHelper.dart';
@@ -70,9 +71,9 @@ class LaunchingApp extends StatelessWidget {
                       Padding(
                           padding: EdgeInsets.all(10),
                           child: ReminderAlertBuilder()),
-                      //Padding(
-                          //padding: EdgeInsets.all(10),
-                          //child: NotificationSwitchBuilder()),
+                      Padding(
+                          padding: EdgeInsets.all(10),
+                          child: TestBuilder()),
                       Padding(
                           padding: EdgeInsets.all(10),
                           child: LanguageChangeBuilder()),

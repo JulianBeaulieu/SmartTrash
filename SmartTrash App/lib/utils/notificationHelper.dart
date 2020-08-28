@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hello_world/models/index.dart';
 import 'package:rxdart/subjects.dart';
+import 'package:hello_world/main.dart';
 
 final BehaviorSubject<ReminderNotification> didReceiveLocalNotificationSubject =
     BehaviorSubject<ReminderNotification>();
@@ -26,6 +27,7 @@ Future<void> initNotifications(
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onSelectNotification: (String payload) async {
     if (payload != null) {
+      pubnub.publish('Trash-Client', {"requester":"App","trigger":"trashDay","status":1});
       debugPrint('notification payload: ' + payload);
     }
     selectNotificationSubject.add(payload);
