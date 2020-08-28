@@ -11,7 +11,6 @@ exitFlag = 0
 threadLock = threading.Lock()
 threads = []
 
-'''
 class KobeBryant:
 	@staticmethod
 	def play(lid):
@@ -31,12 +30,11 @@ class KobeModeScaleThread(threading.Thread):
 		self.name = name
 		self.lid = lid
 		self.increased = False
-		self.scale = Scale()
 		self.weight = self.scale.getWeight()
 
 	def run(self):
 		for i in range(10):
-			if self.scale.getWeight > (self.weight + 4):
+			if self.lid.scale.getWeight() > (self.weight + 4):
 				self.increased = True
 
 		closeT = KobeModeLid(self.lid, 0)
@@ -71,8 +69,8 @@ class KobeModeSound(threading.Thread):
 
 	def run(self):
 		Speaker.playSound(self.path)
-'''
 
+'''
 class KobeBryant:
 	@staticmethod
 	def play(lid):
@@ -82,7 +80,6 @@ class KobeBryant:
 
 		scaleThread.start()
 		lidThread.start()
-
 
 class KobeModeScaleThread(threading.Thread):
 	def __init__(self, id, lid):
@@ -121,7 +118,7 @@ class KobeModeLid(threading.Thread):
 
 
 
-
+'''
 
 
 
