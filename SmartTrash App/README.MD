@@ -8,4 +8,4 @@ Ignore Android files, those are mostly unchanged from the default files, with th
 
 Ignore iOS files, those are mostly unchanged from the default files, with the exception of some iOS permissions for notifications
 
-
+Followed this guide here for part of the notification area, so some code will be similar or the same as the one found on this guide. https://brainsandbeards.com/blog/how-to-add-local-notifications-to-flutter-app
